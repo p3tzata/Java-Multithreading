@@ -1,0 +1,87 @@
+package app_synchronized_block;
+
+import java.nio.channels.NonWritableChannelException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Worker_Good {
+	Random random = new Random();
+	List<Integer> list1 = new ArrayList();
+	List<Integer> list2 = new ArrayList();
+	Object lock1 = new Object();
+	Object lock2 = new Object();
+	
+	
+	 void stageA() {
+
+		 synchronized (lock1) {
+			 try {
+					Thread.sleep(1);
+					this.list1.add(this.random.nextInt(100));
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		
+
+	}
+
+	 void stageB() {
+
+		 synchronized (lock2) {
+			 try {
+					Thread.sleep(1);
+					this.list2.add(this.random.nextInt(100));
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		 
+		
+
+	}
+
+	void process() {
+		for (int i = 0; i < 1000; i++) {
+			this.stageA();
+			this.stageB();
+		}
+	}
+
+	void main() throws InterruptedException {
+
+		long startTime = System.currentTimeMillis();
+
+		Thread thread1 = new Thread(new Runnable() {
+
+			public void run() {
+				process();
+
+			}
+		});
+
+		Thread thread2 = new Thread(new Runnable() {
+
+			public void run() {
+				process();
+
+			}
+		});
+
+		thread1.start();
+		thread2.start();
+
+		thread1.join();
+		thread2.join();
+
+		long endTime = System.currentTimeMillis();
+
+		System.out.println("Finished in:" + (endTime - startTime));
+		System.out.println("List1 size:" + list1.size() + " List2 size:" + list2.size());
+
+	}
+
+}

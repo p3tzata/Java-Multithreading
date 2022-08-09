@@ -1,10 +1,9 @@
-package exam1;
+package app_run.examp2;
 
-public class Runner extends Thread {
+public class Runner implements Runnable {
 
-	@Override
 	public void run() {
-
+		
 		for(int i=0;i<10;i++) {
 			System.out.println("Hello:" + i );
 			try {
@@ -14,8 +13,6 @@ public class Runner extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
-		
 	}
 
 }

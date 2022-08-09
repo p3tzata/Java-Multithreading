@@ -1,4 +1,4 @@
-package exam1;
+package app_run;
 
 public class App {
 

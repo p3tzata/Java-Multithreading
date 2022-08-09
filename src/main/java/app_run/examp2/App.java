@@ -1,4 +1,4 @@
-package exam2;
+package app_run.examp2;
 
 public class App {
 
