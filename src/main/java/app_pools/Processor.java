@@ -2,10 +2,12 @@ package app_pools;
 
 public class Processor implements Runnable {
 	private int id;
+	private int waitMs;
 	
 	
-	public Processor(int id) {
+	public Processor(int id,int waitMs) {
 		this.id = id;
+		this.waitMs=waitMs;
 	}
 
 
@@ -13,7 +15,7 @@ public class Processor implements Runnable {
 		System.out.println("Start Processor ID:"+ this.id);
 		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(waitMs);
 		} catch (InterruptedException e) {
 			
 		}

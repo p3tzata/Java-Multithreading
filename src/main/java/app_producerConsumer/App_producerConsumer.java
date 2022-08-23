@@ -9,6 +9,7 @@ public class App_producerConsumer {
 	private BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
 	Random random = new Random();
 	public static void main(String[] args) {
+		
 		final App_producerConsumer app = new App_producerConsumer();
 		Thread thread = new Thread(new Runnable() {
 			public void run() {

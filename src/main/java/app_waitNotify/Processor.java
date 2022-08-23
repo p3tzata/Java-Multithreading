@@ -27,7 +27,7 @@ public class Processor {
 				scanner.nextLine();
 				System.out.println("Enter key pressed.");
 				notify();
-				System.out.println("Notify Called. please wait 5 seconds");
+				System.out.println("Notify Called. Please wait 5 seconds");
 				Thread.sleep(5000);
 			
 			
