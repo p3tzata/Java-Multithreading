@@ -1,11 +1,10 @@
-package app_reEntrantLock;
+package app_deadlock;
 
 
-public class App_reEntrantLock {
-
+public class App_deadlock {
 	public static void main(String[] args) throws InterruptedException {
-		final Runner app = new Runner();
-		
+		//final Runner_simulateDeadLock app = new Runner_simulateDeadLock();
+		final Runner_avoidDeadLock app = new Runner_avoidDeadLock();
 		
 		Thread thread1 = new Thread(new Runnable() {
 			public void run() {

@@ -49,9 +49,7 @@ public class Runner {
 		this.condition.signal();
 		System.out.println("When Am I started");
 		
-		try {
-			
-			
+		try {			
 			this.increment();
 		} finally {
 			
