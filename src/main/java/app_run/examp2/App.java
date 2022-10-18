@@ -8,6 +8,9 @@ public class App {
 		
 		Thread runner2 =  new Thread(new Runner());
 		runner2.start();
+		
+		Thread thread = new Thread();
+		thread.start();
 	}
 
 }
